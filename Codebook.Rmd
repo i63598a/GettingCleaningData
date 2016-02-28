@@ -1,0 +1,75 @@
+---
+title: "Codebook"
+author: "i63598"
+date: "February 27, 2016"
+output: html_document
+---
+
+# CODE BOOK
+### This code book describes the variables, the data, and any transformations or work that you performed to clean up the data
+
+---
+
+## The Raw Data 
+The data for this project has been collected from the accelerometers from the Samsung Galaxy S smartphone.  The experiments have been carried out with a group of 30 volunteers. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the study captured several readings.  It is these readings that can be found in the raw files called "X_train.txt" and "X_test.txt". The file called "features.txt" provides the labels for all the readings. For full documentation on the data set, please see the README.txt file found here:  http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+The script, run_analysis.R downloads the raw data .zip file from this URL: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+The data is unzipped to a sub-folder called *UCI HAR Dataset* in the working directory
+
+The data files (within the specified subfolder, if applicable) used in the analysis are:
+1. 'activity_labels.txt': Links the class labels with their activity name.
+2. 'train/X_train.txt': Training set.
+3. 'train/y_train.txt': Training labels.
+4. 'test/X_test.txt': Test set.
+5. 'test/y_test.txt': Test labels.
+6. 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30
+7. 'test/subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30
+8. 'features.txt': Contains the variable names for all the columns in the test and train data
+
+More information about the data is found in the file called README.txt
+
+---
+
+## The Variables & Transformations
+
+
+The final tidy data set contains 35 observations of 69 variables
+ * ActivityID                     : int  -      from y_train.txt and y_text.txt, merged using rbind function into data table called *allActivityIDs*
+ * ActivityName                   : Factor -    from activity_labels.txt file which contains two variables, ActivityID and ActivityName, the former used in merge to *allActivityIDs* data table 
+ * SubjectID                      : int -       from subject_train.txt and subject_test.txt, merged using rbind function into data table called *allSubjectIDs*  
+ * timeBodyAccMean                : num -       columns timeBodyAccMean:freqBodyGyroJerkMagnitudeStdDev are from X_test.txt and X_train.txt, merged using rbind; these columns of data were filtered from the full set of 561 based on the presence of mean or std in the label name; the values shown in these columns are the mean values for the subject and activity combination
+ * timeBodyAccStdDev              : num         
+ * timeGravityAccMean             : num  
+ * timeGravityAccStdDev           : num  
+ * timeBodyAccJerkMean            : num  
+ * timeBodyAccJerkStdDev          : num  
+ * timeBodyGyroMean               : num  
+ * timeBodyGyroStdDev             : num  
+ * timeBodyGyroJerkMean           : num  
+ * timeBodyGyroJerkStdDev         : num  
+ * timeBodyAccMagnitudeMean       : num  
+ * timeBodyAccMagnitudeStdDev     : num  
+ * timeGravityAccMagnitudeMean    : num  
+ * timeGravityAccMagnitudeStdDev  : num  
+ * timeBodyAccJerkMagnitudeMean   : num  
+ * timeBodyAccJerkMagnitudeStdDev : num  
+ * timeBodyGyroMagnitudeMean      : num  
+ * timeBodyGyroMagnitudeStdDev    : num  
+ * timeBodyGyroJerkMagnitudeMean  : num  
+ * timeBodyGyroJerkMagnitudeStdDev: num  
+ * freqBodyAccMean                : num  
+ * freqBodyAccStdDev              : num  
+ * freqBodyAccJerkMean            : num  
+ * freqBodyAccJerkStdDev          : num  
+ * freqBodyGyroMean               : num  
+ * freqBodyGyroStdDev             : num  
+ * freqBodyAccMagnitudeMean       : num  
+ * freqBodyAccMagnitudeStdDev     : num  
+ * freqBodyAccJerkMagnitudeMean   : num  
+ * freqBodyAccJerkMagnitudeStdDev : num  
+ * freqBodyGyroMagnitudeMean      : num  
+ * freqBodyGyroMagnitudeStdDev    : num  
+ * freqBodyGyroJerkMagnitudeMean  : num  
+ * freqBodyGyroJerkMagnitudeStdDev: num  
+ 
+ 
